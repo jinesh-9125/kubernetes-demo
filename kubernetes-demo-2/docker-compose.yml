@@ -1,0 +1,9 @@
+services:
+  backend:
+    build: ./
+    volumes:
+      - uploads:/app/upload
+    ports:
+      - 8000:8000
+volumes:
+  uploads:

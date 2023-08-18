@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy1
+  template:
+    metadata:
+      labels: 
+        app: deploy1
+    spec:
+      containers:
+        - image: jineshjain123/kubernetes-demo:v4
+          name: container1
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /
+            periodseconds: 10
+            initialDelaySeconds: 5
